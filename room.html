@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Room</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #eb2ecf;
+            background-image: url('back.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .chat-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .chat-header {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #ff3e6c;
+        }
+
+        #trending-button {
+            background-color: #800080;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 16px;
+        }
+
+        .chat-messages {
+            height: 400px;
+            overflow-y: scroll;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .chat-message {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+        }
+
+        .chat-message .user {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .chat-message img {
+    max-width: 150px; /* Adjust the size as needed */
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+
+        .chat-input {
+            display: flex;
+        }
+
+        .chat-input input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .chat-input button {
+            background-color: #ff3e6c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-left: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .chat-input button:hover {
+            background-color: #e0335e;
+        }
+
+        .social-cart-button {
+            display: inline-block;
+            width: auto;
+            padding: 5px 10px;
+            background-color: #800080;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        .social-cart-button img {
+            width: 40px;
+            height: auto;
+        }
+
+        .room-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .room-info .room-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .room-info .group-members {
+            font-size: 16px;
+            color: #555;
+        }
+
+        #trending-sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #fff;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 1000;
+        }
+
+        #trending-sidebar .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+            cursor: pointer;
+        }
+
+        #trending-sidebar .header {
+            padding: 10px 20px;
+            background-color: #800080;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        #trending-videos {
+            padding: 20px;
+        }
+
+        .trending-video {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .trending-video video {
+            max-width: 100%;
+            max-height: 200px; /* Limit video height */
+            border-radius: 10px;
+        }
+
+        .product-images {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .product-image {
+            width: 30%;
+            text-align: center;
+            cursor: grab;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .vertical-trending {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-weight: bold;
+  color: red;
+  position: absolute;
+  left: -20px; /* Adjust this value as needed to position the text */
+  top: 10px;   /* Adjust this value as needed to position the text */
+}
+
+        .product-description {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="room-info">
+            <div class="room-name">Fashion Lovers Group</div>
+            <div class="group-members">Members: Sanjana, Honey, Disha</div>
+        </div>
+        <div class="chat-header">
+            Welcome to Myntra's Chat Room
+            <button id="trending-button">
+                <i class="fa fa-fire"></i> Trending
+            </button>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <!-- Previous chat messages -->
+            <div class="chat-message">
+                <span class="user">Sanjana:</span> Check out this dress I found on Myntra!<br>
+                <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS2oEW-8wf_XGkZC0-zojtJg6-JOrGCgIEqDSs8occWVb5hKKrcEet7fR2VEPWKVWVSZveK7yXARnHdL3AlZdaO_ozP0qBctnsc6T0lg0GhY6dgb8DnfugBo3A&usqp=CAc" alt="Dress Image">
+                <button class="social-cart-button" onclick="window.location.href='cartsection.html'">
+                    <img src="https://static.vecteezy.com/system/resources/previews/036/278/032/non_2x/3d-shopping-cart-or-trolley-with-discount-sale-promo-gift-icon-illustration-for-ui-ux-social-media-ads-design-free-png.png" alt="Social Cart">
+                </button>
+            </div>
+            <div class="chat-message">
+                <span class="user">Honey:</span> Wow, that looks amazing! Perfect for summer.
+            </div>
+            <div class="chat-message">
+                <span class="user">Honey:</span> I love the color! How much does it cost?
+            </div>
+            <div class="chat-message">
+                <span class="user">Sanjana:</span> It's on sale for  &#8377;999/- Great deal, right?
+            </div>
+            <!-- New messages will appear here -->
+        </div>
+        <div class="chat-input">
+            <input type="text" id="message-input" placeholder="Type a message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <div id="trending-sidebar">
+        <span class="closebtn" onclick="closeTrendingSidebar()">&times;</span>
+        <div class="header">
+            Hi Disha, <br>
+            Based on your previous purchases, here are the trending products
+        </div>
+        <div id="trending-videos">
+            <!-- Trending videos will be loaded here -->
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var messageInput = document.getElementById("message-input");
+            var message = messageInput.value;
+            if (message.trim() !== "") {
+                var chatMessages = document.getElementById("chat-messages");
+                var newMessage = document.createElement("div");
+                newMessage.classList.add("chat-message");
+                newMessage.innerHTML = '<span class="user">Disha:</span> ' + message;
+                chatMessages.appendChild(newMessage);
+                messageInput.value = "";
+                chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to bottom
+            }
+        }
+
+        document.getElementById('trending-button').addEventListener('click', openTrendingSidebar);
+
+        function openTrendingSidebar() {
+            document.getElementById('trending-sidebar').style.width = '300px';
+            loadTrendingVideos();
+        }
+
+        function closeTrendingSidebar() {
+            document.getElementById('trending-sidebar').style.width = '0';
+        }
+
+        function loadTrendingVideos() {
+            fetch('trending.html')
+                .then(response => response.text())
+                .then(html => {
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = html;
+
+                    const videos = tempDiv.querySelectorAll('video');
+                    const trendingVideosContainer = document.getElementById('trending-videos');
+                    trendingVideosContainer.innerHTML = '';
+
+                    const videoProducts = [
+                        [
+                            { src: "https://assets.myntassets.com/w_412,q_60,dpr_2,fl_progressive/assets/images/18743998/2022/6/15/1ecce058-da9a-4531-becc-25b3233629e01655296376585Kurtas1.jpg", name: "", description: "Chickenkari Kurti Black", price: "₹1500" },
+                            { src: "data:image/jpeg;base64,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", name: "", description: "Lucknowi Chickenkari Kurti", price: "₹1399" },
+                            { src: "https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/28981342/2024/4/16/1669d115-df06-4e20-916a-5d5d07c126711713286322763QAZMIWomensChikankariShortKurtiDarkPink1.jpg", name: "", description: "White and Orange Chickenkari", price: "₹1999" }
+                        ],
+                        [
+                            { src: "S21.jpeg", name: "", description: " Floral Printed Kurta ", price: "₹3200" },
+                            { src: "S22.jpeg", name: "", description: "Gotta Patti Anarkali Kurta", price: "₹2600" },
+                            { src: "S23.jpeg", name: "", description: "Motifs Embroidered Anarkali Kurta", price: "₹2800" }
+                        ],
+                        [
+                            { src: "S41.jpeg", name: "", description: "Black V Tie Up Dress", price: "₹2800" },
+                            { src: "S42.jpeg", name: "", description: "Cuban Collar Mini Blazer", price: "₹1700" },
+                            { src: "S43.jpeg", name: "", description: "Drop-Waist Dress", price: "₹2700" }
+                        ],
+                        
+                    ];
+
+                    videos.forEach((video, index) => {
+                        const videoContainer = document.createElement('div');
+                        videoContainer.classList.add('trending-video');
+                        videoContainer.appendChild(video);
+
+                        const productImagesContainer = document.createElement('div');
+                        productImagesContainer.classList.add('product-images');
+
+                        videoProducts[index].forEach(product => {
+                            const productImage = document.createElement('div');
+                            productImage.classList.add('product-image');
+                            productImage.innerHTML = `
+                                <img src="${product.src}" alt="${product.name}" draggable="true" ondragstart="drag(event)">
+                                <div class="product-description">
+                                    <strong>${product.name}</strong><br>
+                                    ${product.description}<br>
+                                    <strong>${product.price}</strong>
+                                </div>
+                            `;
+                            productImagesContainer.appendChild(productImage);
+                        });
+
+                        videoContainer.appendChild(productImagesContainer);
+                        trendingVideosContainer.appendChild(videoContainer);
+                    });
+                })
+                .catch(error => console.error('Error loading trending videos:', error));
+        }
+
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+
+        function drag(event) {
+            event.dataTransfer.setData("text", event.target.outerHTML);
+        }
+
+        function drop(event) {
+    event.preventDefault();
+    var data = event.dataTransfer.getData("text");
+    var chatMessages = document.getElementById("chat-messages");
+    var newMessage = document.createElement("div");
+    newMessage.classList.add("chat-message");
+    newMessage.innerHTML = '<span class="user">You:</span> ' + data;
+    newMessage.innerHTML += `
+        <button class="social-cart-button" onclick="window.location.href='cartsection.html'">
+            <img src="https://static.vecteezy.com/system/resources/previews/036/278/032/non_2x/3d-shopping-cart-or-trolley-with-discount-sale-promo-gift-icon-illustration-for-ui-ux-social-media-ads-design-free-png.png" alt="Social Cart">
+        </button>
+    `;
+    chatMessages.appendChild(newMessage);
+    chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to bottom
+}
+
+        // Add event listeners for drag and drop functionality
+        document.getElementById("chat-messages").addEventListener("dragover", allowDrop);
+        document.getElementById("chat-messages").addEventListener("drop", drop);
+    </script>
+</body>
+</html>

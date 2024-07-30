@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+
+    .header {
+      background-color: #ff3e6c; /* Myntra theme color */
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .header .nav-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .header .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .cart-container {
+      max-width: 900px;
+      margin: 20px auto;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .cart-header {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+      text-align: center;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .cart-item img {
+      width: 100px;
+      height: 100px;
+      border-radius: 5px;
+      margin-right: 20px;
+    }
+
+    .item-details {
+      flex: 1;
+    }
+
+    .item-details h4 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .item-details p {
+      margin: 5px 0;
+      color: #555;
+    }
+
+    .item-price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #ff3e6c;
+    }
+
+    .group-discount {
+      color: green;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .checkout-btn {
+      background-color: #ff3e6c; /* Myntra theme color */
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto 0;
+      text-align: center;
+    }
+
+    .checkout-btn:hover {
+      background-color: #e0335e; /* Darker shade on hover */
+    }
+
+    .social-cart-note {
+      text-align: center;
+      color: #555;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">Myntra</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Men</a>
+      <a href="#">Women</a>
+      <a href="#">Kids</a>
+      <a href="#">Home & Living</a>
+      <a href="#">Beauty</a>
+    </div>
+  </div>
+
+  <div class="cart-container">
+    <div class="cart-header">My Social Cart</div>
+    <div class="cart-item">
+      <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS2oEW-8wf_XGkZC0-zojtJg6-JOrGCgIEqDSs8occWVb5hKKrcEet7fR2VEPWKVWVSZveK7yXARnHdL3AlZdaO_ozP0qBctnsc6T0lg0GhY6dgb8DnfugBo3A&usqp=CAc" alt="Dress Image">
+      <div class="item-details">
+        <h4>Black Summer Dress</h4>
+        <p>Size: M</p>
+        <p>Quantity: 1</p>
+        <div class="item-price">₹999</div>
+        <div class="group-discount">
+          Group Discount Applied! Additional 20% off for group members.
+        </div>
+      </div>
+    </div>
+    <!-- Add more cart items here -->
+
+    <button class="checkout-btn">Proceed to Checkout</button>
+
+    <div class="social-cart-note">
+      <p>Items in your social cart have special discounts and cashback offers if purchased within 15 days.</p>
+      <p>If a significant number of your group members purchase the same item, you will receive additional benefits!</p>
+    </div>
+  </div>
+</body>
+</html>

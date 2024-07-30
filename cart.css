@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #3e8e41;
+  }
+  
+  #create-room-form, #join-room-form, #room-container {
+    display: none;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    margin: 40px auto;
+  }
+  
+  #create-room-form label, #join-room-form label, #room-label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  #create-room-form input, #join-room-form input, #room-input {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  #create-room-form select, #join-room-form select {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  #create-room-form button, #join-room-form button, #add-order-button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #create-room-form button:hover, #join-room-form button:hover, #add-order-button:hover {
+    background-color: #3e8e41;
+  }
+  
+  .room-header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .room-header h2 {
+    margin: 0;
+  }
+  
+  .room-content {
+    padding: 20px;
+  }
+  
+  .add-order-icon {
+    font-size: 24px;
+    cursor: pointer;
+    margin: 10px;
+  }
+  
+  .add-order-icon:hover {
+    color: #3e8e41;
+  }

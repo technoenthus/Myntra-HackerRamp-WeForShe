@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Social Cart</title>
+  <link rel="stylesheet" href="socialcart.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eb2ecf; /* Fallback color */
+      background-image: url('back.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 100vh; /* Adjusted to full height */
+      margin: 0; /* Remove default margin */
+    }
+    
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-top: 50px; /* Add margin to center align */
+    }
+    
+    button {
+      background-color: #ea3d9f;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 24px; /* Adjusted font size */
+    }
+    
+    button:hover {
+      background-color: #1b1a18;
+    }
+    
+    #create-room-form, #join-room-form {
+      display: none;
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 50%;
+      max-width: 600px; /* Added max-width for responsiveness */
+      margin: 40px auto;
+    }
+    
+    #create-room-form label, #join-room-form label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 18px; /* Adjusted font size */
+    }
+    
+    #create-room-form input, #join-room-form input,
+    #create-room-form select, #join-room-form select {
+      width: calc(100% - 22px); /* Adjusted input width */
+      height: 40px;
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      font-size: 16px; /* Adjusted font size */
+    }
+    
+    #create-room-form button, #join-room-form button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 20px; /* Adjusted font size */
+    }
+    
+    #create-room-form button:hover, #join-room-form button:hover {
+      background-color: #3e8e41;
+    }
+    
+  </style>
+</head>
+<body>
+  <h1>Social Cart</h1>
+  <h2 style="text-align: center; font-size: large;">Welcome to Social Cart! Choose Collectively</h2>
+  <div style="text-align: center;">
+    <button onclick="createRoom()">Create a Room</button>
+    <button onclick="joinRoom()">Join a Room</button>
+  </div>
+
+  <!-- Create Room Form -->
+  <div id="create-room-form">
+    <h2>Create a Room</h2>
+    <form>
+      <label for="room-name">Room Name:</label>
+      <input type="text" id="room-name" name="room-name"><br><br>
+      <label for="category">Category:</label>
+      <select id="category" name="category">
+        <option value="Men's Fashion">Men's Fashion</option>
+        <option value="Women's Fashion">Women's Fashion</option>
+        <option value="Kids' Fashion">Kids' Fashion</option>
+      </select><br><br>
+      <button type="submit">Create Room</button>
+    </form>
+  </div>
+  <!-- Join Room Form -->
+<div id="join-room-form">
+  <h2>Join a Room</h2>
+  <form action="room.html" method="get">
+    <label for="room-name">Room Name:</label>
+    <input type="text" id="room-name" name="room-name" placeholder="enter joining code"><br><br>
+    <button type="submit">Join Room</button>
+  </form>
+</div>
+
+
+  <script>
+    function createRoom() {
+      document.getElementById("create-room-form").style.display = "block";
+      document.getElementById("join-room-form").style.display = "none"; // Hide join form
+    }
+
+    function joinRoom() {
+      document.getElementById("join-room-form").style.display = "block";
+      document.getElementById("create-room-form").style.display = "none"; // Hide create form
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="data:image/png;base64,...your-base64-icon..." sizes="64x64"/>
+    <title>Trending - Myntra</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="utils.css" rel="stylesheet" type="text/css" />
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #eb2ecf; /* Fallback color */
+    background-image: url('back.png');
+    background-size: cover;
+    background-repeat: repeat; /* Make the background image repeat */
+    background-position: center;
+    height: 100vh; /* Adjusted to full height */
+    margin: 0; /* Remove default margin */
+}
+        header {
+            position: sticky;
+            top: 0;
+            background: white;
+            height: 66px;
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            z-index: 1000; /* Ensure header is above other elements */
+        }
+        .main-heading {
+            font-weight: bold;
+            font-size: 24px;
+            text-align: center;
+            margin: 80px 0 20px 0; /* Added top margin to avoid overlap */
+            color: #e63946; /* Myntra-inspired red */
+            text-transform: uppercase;
+        }
+        .trending-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        .media-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .media-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 300px;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .media-item img,
+        .media-item video {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .media-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .media-item p {
+            margin: 10px 0 0 0;
+            font-size: 14px;
+            color: #333;
+            font-weight: bold;
+            text-align: center;
+        }
+        .description {
+            text-align: center;
+            margin: 20px;
+        }
+        footer {
+            padding: 23px;
+            text-align: center;
+            box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+            background-color: white;
+        }
+        video::-webkit-media-controls {
+            display: none !important;
+        }
+        video::-moz-media-controls {
+            display: none !important;
+        }
+        video::-ms-media-controls {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="containerHeader">
+        <nav class="flex space-between">
+            <div class="left flex items-center">
+                <img src="icon.jpg" alt="Myntra Logo"/>
+                <ul class="flex items-center justify-center uppercase semibold">
+                    <li>Men</li>
+                    <li>Women</li>
+                    <li>Kids</li>
+                    <li>Home and Living</li>
+                    <li>Beauty</li>
+                    <li>Studio</li>
+                </ul>
+            </div>
+            <div class="right flex items-center">
+                <input class="search" placeholder="Search for products, brands and more" class="desktop-searchBar" value="">
+                <div class="rightBox">
+                    <div class="profile mx-2">Profile</div>
+                    <div class="trending mx-2"><a href="trending.html">Trending</a></div>
+                    <div class="wishlist mx-2">WishList</div>
+                    <div class="bag mx-2">Bag</div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="container">
+        <h1 class="main-heading">Find Clothes According to the Trend</h1>
+        <div class="trending-container">
+            <div class="media-wrapper">
+                <div class="media-item">
+                    <video autoplay muted loop>
+                        <source src="trend1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>#Trending1</p>
+                </div>
+                <div class="media-item">
+                    <img src="c" alt="Trending Image 1">
+                    <p>Chikankari Suits</p>
+                </div>
+            </div>
+            <div class="media-wrapper">
+                <div class="media-item">
+                    <video autoplay muted loop>
+                        <source src="trend2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>#Trending2</p>
+                </div>
+                <div class="media-item">
+                    <img src="https://idaho-o.com/wp-content/uploads/2024/04/IMG_5502.jpeg" alt="Trending Image 2">
+                    <p>Heavy Suit Set</p>
+                </div>
+            </div>
+            <div class="media-wrapper">
+                <div class="media-item">
+                    <video autoplay muted loop>
+                        <source src="tren3.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>#Trending3</p>
+                </div>
+                <div class="media-item">
+                    <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRnfxu31sFKoHdz79uHcsAuyJreqWhuNgiJxmPpxdCLdqBmXosq" alt="Trending Image 3">
+                    <p>Solid Pleated Black Skirt and White Shirt</p>
+                </div>
+            </div>
+            <div class="media-wrapper">
+                <div class="media-item">
+                    <video autoplay muted loop>
+                        <source src="trend4.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>#Trending4</p>
+                </div>
+                <div class="media-item">
+                    <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTLs3yZtGCm_9OXsvOj2cciH2hBgqSseUrbyKVTfUyjm3VPPWZc" alt="Trending Image 4">
+                    <p>Off-Shoulder Corset Crop Top</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Myntra. All rights reserved.</p>
+    </footer>
+</body>
+</html>
